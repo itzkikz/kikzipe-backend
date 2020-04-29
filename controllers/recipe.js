@@ -9,3 +9,12 @@ exports.createRecipe = (req, res) => {
     res.json({ message: 'Recipe added successfully' });
   });
 };
+
+exports.getAllRecipes = (req, res) => {
+  RecipeModel.find().exec((err, allRecipes) => {
+    if (err) {
+      res.status(400).json({ error: 'Failed to load recipes' });
+    }
+    res.json(allRecipes);
+  });
+};
