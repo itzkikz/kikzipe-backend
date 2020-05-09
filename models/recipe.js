@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
-// const { ObjectId } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const recipeSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
+  },
+  category: {
+    type: ObjectId,
+    ref: 'Category',
   },
   serves: {
     type: String,
